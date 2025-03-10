@@ -1,4 +1,4 @@
-version: "3,8"
+version: "3.8"
 
 services:
   mysql:
@@ -13,28 +13,28 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
-  backend:
-    build: ./backend
-    container_name: backend_detran
-    restart: always
-    depends_on:
-      - mysql
-    environment:
-      DB_HOST: mysql
-      DB_USER: root
-      DB_PASSWORD: password
-      DB_NAME: detran
-    ports:
-      - "3000:3000"
+  #backend:
+  #  build: ./backend
+  #  container_name: backend_detran
+  #  restart: always
+  #  depends_on:
+  #    - mysql
+  #  environment:
+  #    DB_HOST: mysql
+  #    DB_USER: root
+  #    DB_PASSWORD: password
+  #    DB_NAME: detran
+  #  ports:
+  #    - "3000:3000"
 
-  frontend:
-    build: ./app/frontend
-    container_name: frontend_container
-    restart: always
-    depends_on:
-      - backend
-    ports:
-      - "4200:80"
+  # frontend:
+  #  build: ./app/frontend
+  #  container_name: frontend_container
+  #  restart: always
+  #  depends_on:
+  #    - backend
+  #  ports:
+  #    - "4200:80"
 
 volumes:
   mysql_data:
