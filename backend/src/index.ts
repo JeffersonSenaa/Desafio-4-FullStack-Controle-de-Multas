@@ -21,7 +21,7 @@ app.use(cors());
 app.use(helmet());
 
 // Include your routes here
-app.use("/todo", todoRoute);
+// app.use("/todo", todoRoute);
 
 app.use(handleZodError);
 app.use(handlePrismaError);

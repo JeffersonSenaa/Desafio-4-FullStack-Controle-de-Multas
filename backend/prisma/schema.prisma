@@ -1,17 +1,39 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:root@172.18.0.2:3306/detran"
+}
 
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+model Motorista {
+  CPF             String  @id @db.VarChar(11)
+  Nome            String  @db.VarChar(100)
+  Vencimento_CNH  DateTime
+  CNH             String  @unique @db.VarChar(11)
+  placa_veiculo   String? @db.VarChar(7)
+  Veiculo         Veiculo?
 }
 
+model Veiculo {
+  Placa             String    @id @db.VarChar(7)
+  Marca             String    @db.VarChar(100)
+  Modelo            String    @db.VarChar(100)
+  Ano               DateTime
+  Cor               String?   @db.VarChar(100)
+  CPF_proprietario  String    @unique @db.VarChar(11) // Adicione @unique
+  Motorista         Motorista @relation(fields: [CPF_proprietario], references: [CPF])
+  Multa             Multa[]
+}
 
-model Todo {
-  id    Int    @id @default(autoincrement()) @db.UnsignedInt
-  title String @db.VarChar(50)
+model Multa {
+  Id_multa          Int     @id @default(autoincrement())
+  Valor             Float
+  Data              DateTime
+  Vel_Maxima        Float?
+  Tipo_Infracao     String
+  Pontos_Penalidade Int
+  id_veiculo        String  @db.VarChar(7)
+  Veiculo           Veiculo @relation(fields: [id_veiculo], references: [Placa])
 }
