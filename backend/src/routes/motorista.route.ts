@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { createMotorista, listMotoristas, findMotoristaByCPF } from "../business/motorista.business";
+import {
+  createMotorista,
+  listMotoristas,
+  findMotoristaByCPF,
+  consultarPontuacaoMotorista,
+} from "../business/motorista.business";
 import { MotoristaCreateSchema } from "../schemas/motorista.schema";
 import createHttpError from "http-errors";
 
@@ -15,6 +20,11 @@ router.get("/:CPF", async (req, res) => {
   const motorista = await findMotoristaByCPF(CPF);
   if (!motorista) throw createHttpError(404, "Motorista não encontrado");
   return res.status(200).json(motorista);
+});
+
+router.get("/pontuacao", async (req, res) => {
+  const motoristas = await consultarPontuacaoMotorista();
+  return res.status(200).json(motoristas);
 });
 
 router.post("/", async (req, res) => {
