@@ -7,7 +7,7 @@ export const MotoristaCreateSchema = z.object({
     message: "Data inválida",
   }),
   CNH: z.string().length(11, "CNH deve ter 11 dígitos"),
-  placa_veiculo: z.string().length(7, "Placa deve ter 7 caracteres").optional(),
+  placa_veiculo: z.string().length(7, "Placa deve ter 7 caracteres") || null,
 });
 
 export type MotoristaCreateInput = z.infer<typeof MotoristaCreateSchema>;

@@ -12,6 +12,8 @@ import { handleCommonError } from "./middlewares/handleCommonError.middleware";
 
 import todoRoute from "./routes/todo.route";
 import motoristaRoutes from "./routes/motorista.route";
+import veiculoRoutes from "./routes/veiculo.route";
+import multaRoutes from "./routes/multa.route";
 
 dotenv.config();
 
@@ -23,7 +25,9 @@ app.use(helmet());
 
 // Include your routes here
 //app.use("/todo", todoRoute);
-//app.use("/motorista", motoristaRoutes);
+app.use("/motorista", motoristaRoutes);
+app.use("/veiculo", veiculoRoutes);
+app.use("/multa", multaRoutes);
 
 app.use(handleZodError);
 app.use(handlePrismaError);

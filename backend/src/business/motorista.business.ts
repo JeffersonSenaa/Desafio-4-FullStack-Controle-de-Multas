@@ -1,4 +1,4 @@
-import { prisma } from "../prismaClient";
+import { prisma } from "../prisma";
 import { MotoristaCreateInput } from "../schemas/motorista.schema";
 
 export const createMotorista = async (data: MotoristaCreateInput) => {
