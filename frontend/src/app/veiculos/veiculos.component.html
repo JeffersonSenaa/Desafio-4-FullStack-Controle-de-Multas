@@ -1,0 +1,48 @@
+<div class="container">
+  <h2>Cadastro de Veículos</h2>
+  <form [formGroup]="veiculoForm" (ngSubmit)="onSubmit()">
+
+    <label for="placa">Placa:</label>
+    <input id="placa" formControlName="placa" type="text" placeholder="Digite a placa">
+    <div *ngIf="veiculoForm.get('placa')?.invalid && veiculoForm.get('placa')?.touched">
+      <small *ngIf="veiculoForm.get('placa')?.errors?.['required']">Placa é obrigatória.</small>
+      <small *ngIf="veiculoForm.get('placa')?.errors?.['pattern']">Formato inválido. Exemplo: ABC1234.</small>
+    </div>
+
+    <label for="marca">Marca:</label>
+    <input id="marca" formControlName="marca" type="text" placeholder="Digite a marca">
+    <div *ngIf="veiculoForm.get('marca')?.invalid && veiculoForm.get('marca')?.touched">
+      <small>Marca é obrigatória.</small>
+    </div>
+
+    <label for="modelo">Modelo:</label>
+    <input id="modelo" formControlName="modelo" type="text" placeholder="Digite o modelo">
+    <div *ngIf="veiculoForm.get('modelo')?.invalid && veiculoForm.get('modelo')?.touched">
+      <small>Modelo é obrigatório.</small>
+    </div>
+
+    <label for="ano">Ano:</label>
+    <input id="ano" formControlName="ano" type="number" placeholder="Digite o ano">
+    <div *ngIf="veiculoForm.get('ano')?.invalid && veiculoForm.get('ano')?.touched">
+      <small *ngIf="veiculoForm.get('ano')?.errors?.['required']">Ano é obrigatório.</small>
+      <small *ngIf="veiculoForm.get('ano')?.errors?.['min'] || veiculoForm.get('ano')?.errors?.['max']">Ano inválido.</small>
+    </div>
+
+    <label for="cor">Cor:</label>
+    <input id="cor" formControlName="cor" type="text" placeholder="Digite a cor">
+    <div *ngIf="veiculoForm.get('cor')?.invalid && veiculoForm.get('cor')?.touched">
+      <small>Cor é obrigatória.</small>
+    </div>
+
+    <label for="motorista">Motorista:</label>
+    <select id="motorista" formControlName="motorista">
+      <option value="" disabled selected>Selecione um motorista</option>
+      <option *ngFor="let motorista of motoristas" [value]="motorista.id">{{ motorista.nome }}</option>
+    </select>
+    <div *ngIf="veiculoForm.get('motorista')?.invalid && veiculoForm.get('motorista')?.touched">
+      <small>Selecione um motorista.</small>
+    </div>
+
+    <button type="submit" [disabled]="veiculoForm.invalid">Cadastrar</button>
+  </form>
+</div>

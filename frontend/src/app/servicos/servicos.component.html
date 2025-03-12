@@ -1,0 +1,14 @@
+<div class="container">
+
+  <!-- Conteúdo -->
+  <main class="content">
+    <h2>Serviços</h2>
+
+    <div class="services-grid">
+      <div *ngFor="let servico of servicos" class="service-card">
+        <p>{{ servico.nome }}</p>
+        <button [routerLink]="servico.rota">Acesse serviço</button>
+      </div>
+    </div>
+  </main>
+</div>
