@@ -11,6 +11,7 @@ import { handlePrismaError } from "./middlewares/handlePrismaError.middleware";
 import { handleCommonError } from "./middlewares/handleCommonError.middleware";
 
 import todoRoute from "./routes/todo.route";
+import motoristaRoutes from "./routes/motorista.route";
 
 dotenv.config();
 
@@ -21,7 +22,8 @@ app.use(cors());
 app.use(helmet());
 
 // Include your routes here
-// app.use("/todo", todoRoute);
+//app.use("/todo", todoRoute);
+//app.use("/motorista", motoristaRoutes);
 
 app.use(handleZodError);
 app.use(handlePrismaError);

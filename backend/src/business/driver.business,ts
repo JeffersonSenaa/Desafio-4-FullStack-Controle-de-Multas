@@ -1,0 +1,10 @@
+import { prisma } from "../prismaClient";
+import { DriverCreateInput } from "../schemas/driver.schema";
+
+export const createDriver = async (data: DriverCreateInput) => {
+  return await prisma.driver.create({ data });
+};
+
+export const listDrivers = async () => {
+  return await prisma.driver.findMany();
+};
