@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Lista de Motoristas</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>CPF</th>
+      <th>Nome</th>
+      <th>Vencimento CNH</th>
+      <th>Categoria CNH</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let motorista of motoristas">
+      <td>{{ motorista.cpf }}</td>
+      <td>{{ motorista.nome }}</td>
+      <td>{{ motorista.vencimentoCnh }}</td>
+      <td>{{ motorista.categoriaCnh }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

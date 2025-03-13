@@ -1,0 +1,32 @@
+body {
+  background-color: #abb8c3;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Mantém o fundo fixo ao rolar a página */
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  width: 100%;
+  background-color: #333;
+  color: #eab308;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.header {
+  background-color: #eab308; /* Amarelo */
+  width: 100vw; /* Ocupa 100% da largura da viewport */
+  height: 80px; /* Ajuste a altura conforme necessário */
+  display: flex;
+  align-items: center;
+  padding-left: 20px; /* Espaço para o texto */
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Inter;
+}
