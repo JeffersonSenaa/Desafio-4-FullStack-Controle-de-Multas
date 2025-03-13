@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Consulta de Multas</h2>
+
+    <!-- verifica se ha multas antes de exibir a tabela -->
+    <table *ngIf="multas && multas.length > 0">
+      <thead>
+        <tr>
+          <th>Placa</th>
+          <th>Data</th>
+          <th>Descrição</th>
+          <th>Valor (R$)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let multa of multas">
+          <td>{{ multa.placa }}</td>
+          <td>{{ multa.data | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ multa.descricao }}</td>
+          <td>{{ multa.valor | currency:'BRL' }}</td>
+          <td>{{ multa.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- caso nao existam multas -->
+    <p *ngIf="multas && multas.length === 0">Nenhuma multa encontrada.</p>
+  </div>

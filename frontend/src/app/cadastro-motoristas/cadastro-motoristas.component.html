@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Cadastro de Motoristas</h2>
+  <form [formGroup]="motoristaForm" (ngSubmit)="onSubmit()">
+
+    <label for="cpf">CPF:</label>
+    <input id="cpf" formControlName="cpf" type="text" placeholder="Digite o CPF" maxlength="11">
+<!--    <div *ngIf="motoristaForm.get('cpf')?.invalid && motoristaForm.get('cpf')?.touched">-->
+<!--      <small *ngIf="motoristaForm.get('cpf')?.errors?.['required']">CPF é obrigatório.</small>-->
+<!--      <small *ngIf="motoristaForm.get('cpf')?.errors?.['pattern']">CPF deve conter 11 dígitos numéricos.</small>-->
+<!--    </div>-->
+
+    <label for="nome">Nome:</label>
+    <input id="nome" formControlName="nome" type="text" placeholder="Digite o nome">
+    <div *ngIf="motoristaForm.get('nome')?.invalid && motoristaForm.get('nome')?.touched">
+      <small>Nome é obrigatório.</small>
+    </div>
+
+    <label for="vencimentoCnh">Vencimento da CNH:</label>
+    <input id="vencimentoCnh" formControlName="vencimentoCnh" type="date">
+    <div *ngIf="motoristaForm.get('vencimentoCnh')?.invalid && motoristaForm.get('vencimentoCnh')?.touched">
+      <small>Data de vencimento é obrigatória.</small>
+    </div>
+
+    <label for="categoriaCnh">Categoria da CNH:</label>
+    <select id="categoriaCnh" formControlName="categoriaCnh">
+      <option value="" disabled selected>Selecione a categoria</option>
+      <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
+    </select>
+    <div *ngIf="motoristaForm.get('categoriaCnh')?.invalid && motoristaForm.get('categoriaCnh')?.touched">
+      <small>Selecione uma categoria.</small>
+    </div>
+
+    <button type="submit" [disabled]="motoristaForm.invalid">Cadastrar</button>
+  </form>
+</div>

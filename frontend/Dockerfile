@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 #Copiar o codigo
-COPY . .
+COPY ../frontend .
 
 #Compilacao do angular
 RUN npm run build --prod
