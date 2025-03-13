@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ConsultaMultasComponent } from './consulta-multas.component';
 
 describe('ConsultaMultasComponent', () => {

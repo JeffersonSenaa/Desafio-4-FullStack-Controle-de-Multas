@@ -12,13 +12,13 @@ interface Multa {
 
 @Component({
   selector: 'app-consulta-multas',
-  standalone: true,
   templateUrl: './consulta-multas.component.html',
+  standalone: true,
   styleUrls: ['./consulta-multas.component.css']
 })
 export class ConsultaMultasComponent implements OnInit {
   multas: Multa[] = [];
-  apiUrl = 'https://api.exemplo.com/multas'; // Substitua pela API real
+  apiUrl = 'https://api.exemplo.com/multas'; // substitua pela API real
 
   constructor(private http: HttpClient) {}
 
