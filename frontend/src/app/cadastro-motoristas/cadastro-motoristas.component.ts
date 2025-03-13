@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './cadastro-motoristas.component.html',
   styleUrls: ['./cadastro-motoristas.component.css']
 })
+
 export class CadastroMotoristasComponent {
   motoristaForm: FormGroup;
   categorias: string[] = ['A', 'B', 'AB'];

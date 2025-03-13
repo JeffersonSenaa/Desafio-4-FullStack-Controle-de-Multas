@@ -26,7 +26,7 @@ export class ServicosComponent {
     { nome: 'Cadastro de multas', rota: '/multas' },
     { nome: 'Consulta de motoristas cadastrados', rota: '/consulta-motoristas' },
     { nome: 'Consulta de veículos', rota: '/consulta-veiculos' },
-    { nome: 'Consulta de pontuação', rota: '/consulta-pontuacao' },
+    { nome: 'Consulta de pontuação', rota: '/consulta-pontos' },
     { nome: 'Consulta de multas', rota: '/consulta-multas' },
   ];
 }

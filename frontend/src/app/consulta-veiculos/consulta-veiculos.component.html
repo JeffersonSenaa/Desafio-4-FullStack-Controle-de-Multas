@@ -1,0 +1,28 @@
+<div class="consulta-veiculos">
+  <h2>Consulta de Veículos</h2>
+  <div class="input-container">
+    <input type="text" [(ngModel)]="motorista" placeholder="Informe o motorista">
+    <button (click)="buscarVeiculos()">Buscar</button>
+  </div>
+
+  <p *ngIf="mensagemErro" class="erro">{{ mensagemErro }}</p>
+
+  <table *ngIf="veiculos.length > 0">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Modelo</th>
+      <th>Placa</th>
+      <th>Ano</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let veiculo of veiculos">
+      <td>{{ veiculo.id }}</td>
+      <td>{{ veiculo.modelo }}</td>
+      <td>{{ veiculo.placa }}</td>
+      <td>{{ veiculo.ano }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
